@@ -40,13 +40,9 @@ main: foo, bar, qaz
       {{ _graphics }}
     {% endif %}
 
-    {% if page.layout == 'post' %}
+    <main id="main-content"{% for _attr in layout.main %} {{ _attr[0] }}="{{ _attr[1] }}"{% endfor %}>
       {{ content }}
-    {% else %}
-      <main id="main-content"{% for _attr in layout.main %} {{ _attr[0] }}="{{ _attr[1] }}"{% endfor %}>
-        {{ content }}
-      </main>
-    {% endif %}
+    </main>
 
     {% if page.graphics_position == 'after' %}
       {{ _graphics }}
